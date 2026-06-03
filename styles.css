@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "TTLakes";
+    src: url("fonts/TTLakes-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TTLakes";
+    src: url("fonts/TTLakes-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TTLakes";
+    src: url("fonts/TTLakes-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "TTLakes", Arial, sans-serif;
+    display: grid;
+    justify-content: center;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    gap: 16px;
+    padding: 16px;
+}
+
+.header__action {
+    border: 1px solid red;
+}
+
+.header__action img {
+    display: block;
+    border: 1px solid blue;
+}
+
+.header__divider {
+    width: 2px;
+    height: 32px;
+    background-color: #EAEAEA;
+}
+
+.main {
+    padding: 0 16px;
+    background-color: green;
+}
+
+.main__title {
+    font-size: 28px;
+}
+
+.main__container {
+    background-color: orange;
+}
+
+@media (min-width: 768px) {
+    body {
+        grid-template-columns: minmax(0, 900px);
+    }
+}
+
+
+/* ===== MOBILE FIRST (default = 1 column grid) ===== */
+/* .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+    gap: 12px;
+    padding: 12px;
+} */
+
+/* Assign areas
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/* ===== FLEX INSIDE COMPONENTS ===== */
+
+/* .header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #f3f3f3;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+} */
+
+/* ===== TABLET ===== */
+/* @media (min-width: 768px) {
+    .layout {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "header header"
+            "main sidebar"
+            "footer footer";
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+} */
+
+/* ===== DESKTOP ===== */
+/* @media (min-width: 1024px) {
+    .layout {
+        grid-template-columns: 3fr 1fr;
+    }
+
+    .main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+} */
