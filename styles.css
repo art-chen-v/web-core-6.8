@@ -25,27 +25,47 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     font-family: "TTLakes", Arial, sans-serif;
-    display: grid;
-    justify-content: center;
+    min-width: 320px;
+}
+
+body {
+    max-width: 1120px;
+    margin: 0 auto;
 }
 
 .header__container {
     display: flex;
-    align-items: center;
-    background-color: lightblue;
+    background-color: white;
     gap: 16px;
     padding: 16px;
 }
 
-.header__action {
-    border: 1px solid red;
+.header__right-icons {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 12px;
 }
 
-.header__action img {
+.header__left-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* .header__item {
+    min-width: 0;
+} */
+
+.bigger-screen {
+    display: none;
+}
+
+.header__item img {
     display: block;
-    border: 1px solid blue;
 }
 
 .header__divider {
@@ -54,103 +74,132 @@ body {
     background-color: #EAEAEA;
 }
 
-.main {
-    padding: 0 16px;
-    background-color: green;
+.main__container {
+    padding: 24px 16px 0 16px;
+    background-color: #F8F8F8;
+    margin-bottom: 35px;
 }
 
 .main__title {
     font-size: 28px;
+    position: relative;
+    margin-bottom: 24px;
 }
 
-.main__container {
-    background-color: orange;
+.main__title::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #41F6D7;
+    border-radius: 0 990px 990px 0;
+}
+
+.menu {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.menu__item {
+    flex: 0 0 auto;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    color: #7E7E82;
+    border-radius: 6px;
+    border: 2px solid transparent;
+}
+
+.menu__item--active {
+    border-color: #41F6D7;
+    background: #FFFFFF;
+}
+
+.main__descr {
+    height: 96px;
+    font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.main__read-more {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 16px;
+}
+
+.main__read-more::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-image: url("assets/expand.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.main__logo-image {
+    display: block;
+    width: calc(100% + 32px);
+    margin-left: -16px;
 }
 
 @media (min-width: 768px) {
-    body {
-        grid-template-columns: minmax(0, 900px);
+    .bigger-screen {
+        display: block;
+    }
+
+    .main__content {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .main__info {
+        flex: 1;
+    }
+
+    .main__image-wrapper {
+        flex: 1;
+        margin-left: 36px;
+    }
+
+    .main__logo-image {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        object-fit: cover;
+        display: block;
+    }
+
+    .main__descr {
+        height: 134px;
     }
 }
 
-
-/* ===== MOBILE FIRST (default = 1 column grid) ===== */
-/* .layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "header"
-        "main"
-        "sidebar"
-        "footer";
-    gap: 12px;
-    padding: 12px;
-} */
-
-/* Assign areas
-.header {
-    grid-area: header;
-}
-
-.main {
-    grid-area: main;
-}
-
-.sidebar {
-    grid-area: sidebar;
-}
-
-.footer {
-    grid-area: footer;
-}
-
-/* ===== FLEX INSIDE COMPONENTS ===== */
-
-/* .header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.nav {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: #f3f3f3;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-} */
-
-/* ===== TABLET ===== */
-/* @media (min-width: 768px) {
-    .layout {
-        grid-template-columns: 2fr 1fr;
-        grid-template-areas:
-            "header header"
-            "main sidebar"
-            "footer footer";
-    }
-
+@media (min-width: 1120px) {
     .header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-} */
-
-/* ===== DESKTOP ===== */
-/* @media (min-width: 1024px) {
-    .layout {
-        grid-template-columns: 3fr 1fr;
+        display: none;
     }
 
-    .main {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    .main__container {
+        padding-top: 42px;
     }
-} */
+
+    .menu {
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+
+    .main__descr {
+        height: auto;
+    }
+}
